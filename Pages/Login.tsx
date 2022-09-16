@@ -37,8 +37,10 @@ function Login() {
       <Formik
         initialValues={initialValues}
         validationSchema={LoginSchema}
-        onSubmit={values => {
+        onSubmit={(values, {resetForm}) => {
           handleLogin(values);
+          // formikRef?.current?.resetForm();
+          resetForm(initialValues);
         }}>
         {({handleChange, handleBlur, handleSubmit, errors, values}) => (
           <View style={{width: '100%'}}>
